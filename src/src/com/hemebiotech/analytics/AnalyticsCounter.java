@@ -1,10 +1,8 @@
 package src.com.hemebiotech.analytics;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.function.Function;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 /**
@@ -14,22 +12,16 @@ import java.util.stream.Collectors;
 public class AnalyticsCounter {
 
 	public static void main(String[] args) {
-		
-		ReadSymptomDataFromFile symptom = new ReadSymptomDataFromFile("symptoms.txt");
-		List<String> symptoms = symptom.GetSymptoms();
-		Set<String> symptomsSet = new HashSet<String>(symptoms);
 
-		symptoms.stream()
-        	.map(getFunction(symptoms, symptoms.size() != symptomsSet.size()))
-        	.collect(Collectors.toSet())
-        	.forEach(System.out::println);
+		ReadSymptomDataFromFile symptoms = new ReadSymptomDataFromFile("symptoms.txt");
+		List<String> listOfSymptoms = symptoms.GetSymptoms();
+
+		Map<String, Long> counts =
+				listOfSymptoms.stream().collect(Collectors.groupingBy(e -> e, Collectors.counting()));
+		Map<String, Long> map = new TreeMap<>(counts);
+
+		WriteSymptomWithOccurForOut results = 
+				new WriteSymptomWithOccurForOut("results.out");
+		results.SetSymptoms(map);
 	}
-
-	static Function<String, String> getFunction(List<String> symptoms, boolean hasDuplicates){
-	      
-	    return hasDuplicates ?  
-	    		symptom -> symptom + " (" + Collections.frequency(symptoms, symptom) + ")"
-	          : Function.identity();
-	}
-
 }
