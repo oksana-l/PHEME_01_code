@@ -18,7 +18,7 @@ public class WriteSymptomWithOccurForOut implements ISymptomWriter{
 			BufferedWriter fichier = new BufferedWriter(new FileWriter(outputFilePath, true));
 			for (Map.Entry<String, Long> entry :
 				map.entrySet()) {
-				fichier.write(entry.getKey() + ":"
+				fichier.write(entry.getKey() + "="
 						+ entry.getValue());
 				fichier.newLine();
 			}
