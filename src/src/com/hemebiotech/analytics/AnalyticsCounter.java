@@ -9,9 +9,9 @@ import java.util.stream.Collectors;
  * This is the main class which appeals to other classes and methods and coordinates their actions
  * 
  * @see ReadSymptomDataFromFile
- * @see GetSymptoms
+ * @see ISymptomReader
  * @see WriteSymptomWithOccurForOut
- * @see SetSymptoms
+ * @see ISymptomWriter
  *
  */
 public class AnalyticsCounter {

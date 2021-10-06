@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * This is a class which reads data from a file and adds it to ArrayList
  *
+ *@see AnalyticsCounter
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 

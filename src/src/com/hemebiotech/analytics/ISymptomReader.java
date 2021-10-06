@@ -9,6 +9,8 @@ import java.util.List;
  * 
  * The implementation does not need to order the list
  * 
+ * @see ReadSymptomDataFromFile
+ * @see AnalyticsCounter
  */
 public interface ISymptomReader {
 	/**

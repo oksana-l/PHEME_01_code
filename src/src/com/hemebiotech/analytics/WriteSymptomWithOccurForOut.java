@@ -7,6 +7,8 @@ import java.util.Map;
 /**
  * This is a class that writes symptoms and their occurrences, one per line
  * to the output file
+ * 
+ * @see AnalyticsCounter
  */
 public class WriteSymptomWithOccurForOut implements ISymptomWriter{
 
