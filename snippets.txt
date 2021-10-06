@@ -1,3 +1,5 @@
+This is a snippet that implements another possible solution :
+
 //Set<String> symptomsSet = new HashSet<String>(symptoms);
 //symptoms.stream()
 //.map(getFunction(symptoms, symptoms.size() != symptomsSet.size()))

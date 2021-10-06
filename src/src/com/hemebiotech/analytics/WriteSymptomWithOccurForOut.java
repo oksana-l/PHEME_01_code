@@ -4,10 +4,18 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.Map;
 
+/**
+ * This is a class that writes symptoms and their occurrences, one per line
+ * to the output file
+ */
 public class WriteSymptomWithOccurForOut implements ISymptomWriter{
 
 	private String outputFilePath;
-
+	
+	/**
+	 * 
+	 * @param outputFilePath a full or partial path to the output file 
+	 */
 	public WriteSymptomWithOccurForOut(String outputFilePath) {
 		this.outputFilePath = outputFilePath;
 	}
