@@ -24,8 +24,8 @@ public class AnalyticsCounter {
         final List<String> listOfSymptoms = symptoms.getSymptoms();
 
         // Counting of occurrences and sorting in alphabetical order
-        final Map<String, Long> countsOccurrences =
-                listOfSymptoms.stream().collect(Collectors.groupingBy(e -> e, Collectors.counting()));
+        final Map<String, Long> countsOccurrences = listOfSymptoms.stream()
+                .collect(Collectors.groupingBy(symptomsSet -> symptomsSet, Collectors.counting()));
         final Map<String, Long> sortedList = new TreeMap<>(countsOccurrences);
 
         // Writing the result in the output file
