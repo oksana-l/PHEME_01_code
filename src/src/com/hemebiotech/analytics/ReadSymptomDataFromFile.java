@@ -9,39 +9,38 @@ import java.util.List;
 /**
  * This is a class which reads data from a file and adds it to ArrayList
  *
- *@see AnalyticsCounter
+ * @see AnalyticsCounter
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
-	private String filepath;
+    private final String filepath;
 
-	/**
-	 * 
-	 * @param filepath a full or partial path to file with symptom strings in it, one per line
-	 */
-	public ReadSymptomDataFromFile (String filepath) {
-		this.filepath = filepath;
-	}
+    /**
+     *
+     * @param filepath a full or partial path to file with symptom strings in it,
+     *                 one per line
+     */
+    public ReadSymptomDataFromFile(final String filepath) {
+        this.filepath = filepath;
+    }
 
-	@Override
-	public List<String> GetSymptoms() {
-		List<String> result = new ArrayList<String>();
+    @Override
+    public List<String> getSymptoms() {
+        final List<String> result = new ArrayList<>();
 
-		if (filepath != null) {
-			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
-				String line = reader.readLine();
+        if (filepath != null) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
 
-				while (line != null) {
-					result.add(line);
-					line = reader.readLine();
-				}
-				reader.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+                String line = reader.readLine();
 
-		return result;
-	}
+                while (line != null) {
+                    result.add(line);
+                    line = reader.readLine();
+                }
+            } catch (final IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
+    }
 }
