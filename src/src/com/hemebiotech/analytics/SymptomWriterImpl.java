@@ -6,9 +6,9 @@ import java.util.Map;
  * This is used to write the sorted data to the output file.
  *
  * @see WriteSymptomWithOccurForOut
- * @see AnalyticsCounter
+ * @see AnalyticsCounterApplication
  */
-public interface ISymptomWriter {
+public interface SymptomWriterImpl {
     /**
      * @param sortedList This is a list of "key: value" pairs sorted alphabetically
      *

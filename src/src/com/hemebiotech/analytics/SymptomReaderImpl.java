@@ -12,7 +12,7 @@ import java.util.List;
  * @see ReadSymptomDataFromFile
  * @see AnalyticsCounter
  */
-public interface ISymptomReader {
+public interface SymptomReaderImpl {
     /**
      * If no data is available, return an empty List
      *

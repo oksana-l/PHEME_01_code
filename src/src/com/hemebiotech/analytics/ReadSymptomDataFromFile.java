@@ -9,9 +9,9 @@ import java.util.List;
 /**
  * This is a class which reads data from a file and adds it to ArrayList
  *
- * @see AnalyticsCounter
+ * @see AnalyticsCounterApplication
  */
-public class ReadSymptomDataFromFile implements ISymptomReader {
+public class ReadSymptomDataFromFile implements SymptomReaderImpl {
 
     private final String filepath;
 

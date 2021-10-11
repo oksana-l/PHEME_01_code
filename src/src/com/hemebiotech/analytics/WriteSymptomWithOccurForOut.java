@@ -9,9 +9,9 @@ import java.util.Map;
  * This is a class that writes symptoms and their occurrences, one per line to
  * the output file
  *
- * @see AnalyticsCounter
+ * @see AnalyticsCounterApplication
  */
-public class WriteSymptomWithOccurForOut implements ISymptomWriter {
+public class WriteSymptomWithOccurForOut implements SymptomWriterImpl {
 
     private final String outputFilePath;
 
@@ -25,11 +25,11 @@ public class WriteSymptomWithOccurForOut implements ISymptomWriter {
 
     @Override
     public void setSymptoms(final Map<String, Long> sortedList) {
-        try (final BufferedWriter fichier = new BufferedWriter(new FileWriter(outputFilePath, true))) {
+        try (final BufferedWriter file = new BufferedWriter(new FileWriter(outputFilePath, true))) {
 
             for (final Map.Entry<String, Long> entry : sortedList.entrySet()) {
-                fichier.write(entry.getKey() + "=" + entry.getValue());
-                fichier.newLine();
+                file.write(entry.getKey() + "=" + entry.getValue());
+                file.newLine();
             }
         } catch (final IOException e) {
             e.printStackTrace();

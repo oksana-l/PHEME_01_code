@@ -6,21 +6,19 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 /**
- * This is the main class which appeals to other classes and methods and
- * coordinates their actions
+ * This is the body of the application which calls on the other classes and
+ * coordinates their execution.
  *
- * @see ReadSymptomDataFromFile
- * @see ISymptomReader
- * @see WriteSymptomWithOccurForOut
- * @see ISymptomWriter
+ * @see AnalyticsCounterApplication
  *
  */
 public class AnalyticsCounter {
 
-    public static void main(final String[] args) {
+    private String filepath;
 
+    public static void out(final String filepath) {
         // Reading symptoms from file
-        final ReadSymptomDataFromFile symptoms = new ReadSymptomDataFromFile("symptoms.txt");
+        final ReadSymptomDataFromFile symptoms = new ReadSymptomDataFromFile(filepath);
         final List<String> listOfSymptoms = symptoms.getSymptoms();
 
         // Counting of occurrences and sorting in alphabetical order
@@ -31,5 +29,13 @@ public class AnalyticsCounter {
         // Writing the result in the output file
         final WriteSymptomWithOccurForOut results = new WriteSymptomWithOccurForOut("results.out");
         results.setSymptoms(sortedList);
+    }
+
+    public String getFilepath() {
+        return filepath;
+    }
+
+    public void setFilepath(final String filepath) {
+        this.filepath = filepath;
     }
 }
