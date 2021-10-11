@@ -4,10 +4,10 @@ package src.com.hemebiotech.analytics;
  * This is the main class that triggers the application according to the
  * received file
  *
- * @see ReadSymptomDataFromFile
- * @see SymptomReaderImpl
- * @see WriteSymptomWithOccurForOut
- * @see SymptomWriterImpl
+ * @see SymptomReaderServiceImpl
+ * @see SymptomReaderService
+ * @see SymptomWriterServiceImpl
+ * @see SymptomWriterService
  *
  */
 public class AnalyticsCounterApplication {

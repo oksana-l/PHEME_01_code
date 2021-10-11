@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @see AnalyticsCounterApplication
  */
-public class ReadSymptomDataFromFile implements SymptomReaderImpl {
+public class SymptomReaderServiceImpl implements SymptomReaderService {
 
     private final String filepath;
 
@@ -20,7 +20,7 @@ public class ReadSymptomDataFromFile implements SymptomReaderImpl {
      * @param filepath a full or partial path to file with symptom strings in it,
      *                 one per line
      */
-    public ReadSymptomDataFromFile(final String filepath) {
+    public SymptomReaderServiceImpl(final String filepath) {
         this.filepath = filepath;
     }
 

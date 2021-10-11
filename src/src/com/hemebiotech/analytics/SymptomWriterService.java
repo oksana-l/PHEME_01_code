@@ -5,10 +5,10 @@ import java.util.Map;
 /**
  * This is used to write the sorted data to the output file.
  *
- * @see WriteSymptomWithOccurForOut
+ * @see SymptomWriterServiceImpl
  * @see AnalyticsCounterApplication
  */
-public interface SymptomWriterImpl {
+public interface SymptomWriterService {
     /**
      * @param sortedList This is a list of "key: value" pairs sorted alphabetically
      *

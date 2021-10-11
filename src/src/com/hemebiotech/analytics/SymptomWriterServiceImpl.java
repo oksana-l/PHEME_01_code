@@ -11,7 +11,7 @@ import java.util.Map;
  *
  * @see AnalyticsCounterApplication
  */
-public class WriteSymptomWithOccurForOut implements SymptomWriterImpl {
+public class SymptomWriterServiceImpl implements SymptomWriterService {
 
     private final String outputFilePath;
 
@@ -19,7 +19,7 @@ public class WriteSymptomWithOccurForOut implements SymptomWriterImpl {
      *
      * @param outputFilePath a full or partial path to the output file
      */
-    public WriteSymptomWithOccurForOut(final String outputFilePath) {
+    public SymptomWriterServiceImpl(final String outputFilePath) {
         this.outputFilePath = outputFilePath;
     }
 

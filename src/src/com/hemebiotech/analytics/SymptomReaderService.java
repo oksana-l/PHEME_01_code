@@ -9,10 +9,10 @@ import java.util.List;
  *
  * The implementation does not need to order the list
  *
- * @see ReadSymptomDataFromFile
+ * @see SymptomReaderServiceImpl
  * @see AnalyticsCounter
  */
-public interface SymptomReaderImpl {
+public interface SymptomReaderService {
     /**
      * If no data is available, return an empty List
      *

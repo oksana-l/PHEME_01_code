@@ -18,7 +18,7 @@ public class AnalyticsCounter {
 
     public static void out(final String filepath) {
         // Reading symptoms from file
-        final ReadSymptomDataFromFile symptoms = new ReadSymptomDataFromFile(filepath);
+        final SymptomReaderServiceImpl symptoms = new SymptomReaderServiceImpl(filepath);
         final List<String> listOfSymptoms = symptoms.getSymptoms();
 
         // Counting of occurrences and sorting in alphabetical order
@@ -27,7 +27,7 @@ public class AnalyticsCounter {
         final Map<String, Long> sortedList = new TreeMap<>(countsOccurrences);
 
         // Writing the result in the output file
-        final WriteSymptomWithOccurForOut results = new WriteSymptomWithOccurForOut("results.out");
+        final SymptomWriterServiceImpl results = new SymptomWriterServiceImpl("results.out");
         results.setSymptoms(sortedList);
     }
 
