@@ -7,25 +7,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This is a class which reads data from a file and adds it to ArrayList
+ * Reads datas from a file and adds to List
  *
  * @see AnalyticsCounterApplication
  */
-public class SymptomReaderServiceImpl implements SymptomReaderService {
+public class AnalyticsReaderServiceImpl implements AnalyticsReaderService {
 
     private final String filepath;
 
     /**
      *
-     * @param filepath a full or partial path to file with symptom strings in it,
+     * @param filepath an absolute or relative path to file with data strings in it,
      *                 one per line
      */
-    public SymptomReaderServiceImpl(final String filepath) {
+    public AnalyticsReaderServiceImpl(final String filepath) {
         this.filepath = filepath;
     }
 
     @Override
-    public List<String> getSymptoms() {
+    public List<String> readAnalytics() {
         final List<String> result = new ArrayList<>();
 
         if (filepath != null) {

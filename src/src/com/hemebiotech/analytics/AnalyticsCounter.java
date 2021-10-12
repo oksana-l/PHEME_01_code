@@ -6,36 +6,36 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 /**
- * This is the body of the application which calls on the other classes and
- * coordinates their execution.
+ * Sorts the received file and returns the result to the output file
  *
  * @see AnalyticsCounterApplication
- *
  */
-public class AnalyticsCounter {
+public final class AnalyticsCounter {
 
-    private String filepath;
-
-    public static void out(final String filepath) {
-        // Reading symptoms from file
-        final SymptomReaderServiceImpl symptoms = new SymptomReaderServiceImpl(filepath);
-        final List<String> listOfSymptoms = symptoms.getSymptoms();
-
-        // Counting of occurrences and sorting in alphabetical order
-        final Map<String, Long> countsOccurrences = listOfSymptoms.stream()
-                .collect(Collectors.groupingBy(symptomsSet -> symptomsSet, Collectors.counting()));
-        final Map<String, Long> sortedList = new TreeMap<>(countsOccurrences);
-
-        // Writing the result in the output file
-        final SymptomWriterServiceImpl results = new SymptomWriterServiceImpl("results.out");
-        results.setSymptoms(sortedList);
+    private AnalyticsCounter() {
     }
 
-    public String getFilepath() {
-        return filepath;
+    static void out(final String filepath) {
+        // Reading datas from file
+        final AnalyticsReaderServiceImpl datas = new AnalyticsReaderServiceImpl(filepath);
+        final List<String> listOfDatas = datas.readAnalytics();
+
+        final Map<String, Long> sortedList = analyticsCounter(listOfDatas);
+
+        final String fileout = "results.out";
+        final AnalyticsWriterServiceImpl results = new AnalyticsWriterServiceImpl(fileout);
+        results.writeAnalytics(sortedList);
     }
 
-    public void setFilepath(final String filepath) {
-        this.filepath = filepath;
+    /**
+     * Counting of occurrences and sorting in alphabetical order
+     *
+     * @param listOfDatas
+     * @return Returns the sorted list
+     */
+    static Map<String, Long> analyticsCounter(final List<String> listOfDatas) {
+        final Map<String, Long> countsOccurrences =
+                listOfDatas.stream().collect(Collectors.groupingBy(datasSet -> datasSet, Collectors.counting()));
+        return new TreeMap<>(countsOccurrences);
     }
 }

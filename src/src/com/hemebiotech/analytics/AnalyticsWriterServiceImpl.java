@@ -6,26 +6,26 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
- * This is a class that writes symptoms and their occurrences, one per line to
- * the output file
+ * Writes datas and their occurrences, one per line to the output file
  *
  * @see AnalyticsCounterApplication
  */
-public class SymptomWriterServiceImpl implements SymptomWriterService {
+public class AnalyticsWriterServiceImpl implements AnalyticsWriterService {
 
-    private final String outputFilePath;
+    final String outputFilePath;
 
     /**
      *
-     * @param outputFilePath a full or partial path to the output file
+     * @param fileout
+     * @param outputFilePath a absolute or relative path to the output file
      */
-    public SymptomWriterServiceImpl(final String outputFilePath) {
+    public AnalyticsWriterServiceImpl(final String outputFilePath) {
         this.outputFilePath = outputFilePath;
     }
 
     @Override
-    public void setSymptoms(final Map<String, Long> sortedList) {
-        try (final BufferedWriter file = new BufferedWriter(new FileWriter(outputFilePath, true))) {
+    public void writeAnalytics(final Map<String, Long> sortedList) {
+        try (final BufferedWriter file = new BufferedWriter(new FileWriter(outputFilePath, false))) {
 
             for (final Map.Entry<String, Long> entry : sortedList.entrySet()) {
                 file.write(entry.getKey() + "=" + entry.getValue());
